@@ -9,6 +9,12 @@ export const creatorRouter = createRouter()
       return creator ? creator : null
     }
   })
+  .query('getAll', {
+    resolve: async ({ ctx: { prisma } }) => {
+      const creators = await prisma.creator.findMany()
+      return creators
+    }
+  })
   .mutation('create', {
     input: z.object({
       id: z.string(),
