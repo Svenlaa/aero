@@ -25,9 +25,9 @@ const CreatorPage = () => {
           avatarUrl={creator.avatarUrl}
           name={creator.name}
         />
-        <div className="mx-2 grid grid-cols-2 gap-4 px-2 pb-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
+        <div className="mx-2 grid grid-cols-1 gap-4 px-2 pb-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
           {creator.videos.map((video) => (
-            <Thumbnail video={video} />
+            <Thumbnail video={video} key={video.id} />
           ))}
         </div>
       </main>
