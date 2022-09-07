@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { trpc } from '../../utils/trpc'
 import Creator from '../../components/creator'
+import Thumbnail from '../../components/thumbnail'
 
 const CreatorPage = () => {
   const router = useRouter()
@@ -24,6 +25,11 @@ const CreatorPage = () => {
           avatarUrl={creator.avatarUrl}
           name={creator.name}
         />
+        <div className="mx-2 flex flex-col gap-4 px-2 pb-4">
+          {creator.videos.map((video) => (
+            <Thumbnail video={video} />
+          ))}
+        </div>
       </main>
     </>
   )

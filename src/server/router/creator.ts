@@ -10,7 +10,7 @@ export const creatorRouter = createRouter()
     resolve: async ({ input, ctx: { prisma } }) => {
       const creator = await prisma.creator.findUnique({
         where: { id: input.id },
-        include: { videos: input.includeVideos }
+        include: { videos: { orderBy: { createdAt: 'desc' } } }
       })
       return creator ? creator : null
     }
