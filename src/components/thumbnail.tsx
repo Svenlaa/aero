@@ -15,7 +15,7 @@ const Thumbnail = ({
   }
 }) => {
   return (
-    <Link href={'/v/' + video.thumbnailUrl}>
+    <Link href={'/v/' + video.id}>
       <a className="px-2">
         <div className="relative aspect-video w-full">
           <Image
