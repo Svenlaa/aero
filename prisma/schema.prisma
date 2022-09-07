@@ -19,12 +19,11 @@ model Creator {
 
 model Video {
     id String @id
-    source String
+    source String?
     title String
     videoUrl String
     thumbnailUrl String
-    description String?
-    createdAt DateTime
+    createdAt DateTime @default(now())
 
     creatorId String
     creator Creator? @relation(fields: [creatorId], references: [id])

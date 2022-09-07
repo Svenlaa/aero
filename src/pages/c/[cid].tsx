@@ -6,7 +6,10 @@ const CreatorPage = () => {
   const router = useRouter()
   const { cid } = router.query
 
-  const creatorQuery = trpc.useQuery(['creator.byId', cid as string])
+  const creatorQuery = trpc.useQuery([
+    'creator.byId',
+    { id: cid as string, includeVideos: true }
+  ])
 
   if (!creatorQuery.isSuccess || !creatorQuery.data) return <p>Loading...</p>
 
@@ -16,7 +19,11 @@ const CreatorPage = () => {
     <>
       <h1 className="mb-4 bg-slate-400 text-center text-2xl">Aero</h1>
       <main className="container mx-auto">
-        <Creator avatarUrl={creator.avatarUrl} name={creator.name} />
+        <Creator
+          id={creator.id}
+          avatarUrl={creator.avatarUrl}
+          name={creator.name}
+        />
       </main>
     </>
   )
