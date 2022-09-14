@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Header from '../../components/header'
 import { trpc } from '../../utils/trpc'
 
 const VideoPage = () => {
@@ -14,7 +15,7 @@ const VideoPage = () => {
 
   return (
     <>
-      <h1 className="mb-2 bg-slate-400 text-center text-2xl">Aero</h1>
+      <Header title={video.title + ' | Aero'} />
       <main className="container mx-auto px-2">
         <div className="mx-auto px-2">
           <video

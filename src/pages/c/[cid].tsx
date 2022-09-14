@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { trpc } from '../../utils/trpc'
 import Creator from '../../components/creator'
 import Thumbnail from '../../components/thumbnail'
+import Header from '../../components/header'
 
 const CreatorPage = () => {
   const router = useRouter()
@@ -18,7 +19,7 @@ const CreatorPage = () => {
 
   return (
     <>
-      <h1 className="mb-4 bg-slate-400 text-center text-2xl">Aero</h1>
+      <Header title={creator.name + ' | Aero'} />
       <main className="container mx-auto">
         <Creator
           id={creator.id}
