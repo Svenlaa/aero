@@ -2,6 +2,16 @@ import { z } from 'zod'
 import { createRouter } from './context'
 
 export const videoRouter = createRouter()
+  .query('getAll', {
+    input: z.number(),
+    resolve: async ({ input, ctx: { prisma } }) => {
+      const videos = await prisma.video.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: input
+      })
+      return videos ? videos : []
+    }
+  })
   .query('byId', {
     input: z.string(),
     resolve: async ({ input, ctx: { prisma } }) => {

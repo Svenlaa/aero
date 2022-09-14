@@ -8,7 +8,7 @@ const CreatorsPage = () => {
   return (
     <>
       <main>
-        <h1 className="mb-4 bg-slate-400 text-center text-2xl">Creators</h1>
+        <h1 className="mb-4 bg-slate-400 text-center text-2xl">Aero</h1>
         <div className="mx-auto flex w-4/5 flex-wrap gap-4">
           {creators.map((creator) => (
             <Avatar creator={creator} key={creator.id} />
