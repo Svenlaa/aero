@@ -5,4 +5,5 @@ rules:
   prettier/prettier: off
   no-var: error
   eqeqeq: warn
+  no-console: warn
   no-unused-expressions: error

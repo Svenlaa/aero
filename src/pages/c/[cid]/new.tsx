@@ -29,7 +29,6 @@ const NewVideo = () => {
       title,
       videoUrl
     })
-    console.log(m)
   }
 
   const onAutofill = () => {

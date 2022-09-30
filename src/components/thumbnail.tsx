@@ -22,6 +22,7 @@ const Thumbnail = ({
             src={`${process.env.NEXT_PUBLIC_FILE_URL}/${video.thumbnailUrl}`}
             layout="fill"
             className="rounded-t-md"
+            alt={`Video thumbnail for ${video.title}`}
           />
         </div>
         <span className="block rounded-b-md bg-slate-400 py-2 px-4">

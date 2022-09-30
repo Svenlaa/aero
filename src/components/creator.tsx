@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { faPlusSquare } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { laterLink } from '../pages/later'
 
 const Creator = ({
   name,
@@ -20,6 +19,7 @@ const Creator = ({
           className="rounded-md"
           layout="fill"
           src={`${process.env.NEXT_PUBLIC_FILE_URL}/${avatarUrl}`}
+          alt={`Profile picture of ${name}`}
         />
       </div>
       <h2 className="flex-grow pl-28 align-middle text-2xl font-bold leading-[6rem]">

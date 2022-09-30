@@ -14,7 +14,6 @@ const NewCreator = () => {
     if (!id || !avatarUrl || !name) return
 
     const m = mutation.mutate({ id, avatarUrl, name })
-    console.log(m)
   }
 
   return (
@@ -43,4 +42,5 @@ const NewCreator = () => {
     </>
   )
 }
+
 export default NewCreator
