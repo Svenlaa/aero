@@ -30,7 +30,7 @@ const VideoPage = () => {
             />
           </video>
         </div>
-        <div className="mx-auto flex flex-row p-4 py-2">
+        <div className="mx-auto flex flex-row px-4 py-2">
           <span className="block flex-grow rounded-l-md bg-slate-400 px-4 py-2">
             {video.title}
           </span>

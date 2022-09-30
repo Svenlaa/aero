@@ -1,9 +1,13 @@
+import { createSSGHelpers } from '@trpc/react/ssg'
+import { GetStaticProps } from 'next'
 import Header from '../components/header'
 import Thumbnail from '../components/thumbnail'
+import { appRouter } from '../server/router'
+import { createContextInner } from '../server/router/context'
 import { trpc } from '../utils/trpc'
 
 const Home = () => {
-  const videosQuery = trpc.useQuery(['video.getAll', 24])
+  const videosQuery = trpc.useQuery(['video.getAll', 96])
   if (!videosQuery.isSuccess) return <p>Waiting...</p>
   const videos = videosQuery.data
   return (
@@ -18,6 +22,21 @@ const Home = () => {
       </main>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const ssg = await createSSGHelpers({
+    router: appRouter,
+    ctx: await createContextInner({})
+  })
+
+  await ssg.fetchQuery('video.getAll', 96)
+
+  return {
+    props: {
+      trpcState: ssg.dehydrate()
+    }
+  }
 }
 
 export default Home

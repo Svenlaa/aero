@@ -7,6 +7,7 @@ export const videoRouter = createRouter()
     resolve: async ({ input, ctx: { prisma } }) => {
       const videos = await prisma.video.findMany({
         orderBy: { createdAt: 'desc' },
+        select: { id: true, thumbnailUrl: true, title: true },
         take: input
       })
       return videos ? videos : []

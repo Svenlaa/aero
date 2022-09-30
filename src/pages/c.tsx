@@ -1,5 +1,9 @@
+import { createSSGHelpers } from '@trpc/react/ssg'
+import { GetStaticProps } from 'next'
 import Avatar from '../components/avatar'
 import Header from '../components/header'
+import { appRouter } from '../server/router'
+import { createContextInner } from '../server/router/context'
 import { trpc } from '../utils/trpc'
 
 const CreatorsPage = () => {
@@ -18,6 +22,21 @@ const CreatorsPage = () => {
       </main>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const ssg = await createSSGHelpers({
+    router: appRouter,
+    ctx: await createContextInner({})
+  })
+
+  await ssg.fetchQuery('creator.getAll')
+
+  return {
+    props: {
+      trpcState: ssg.dehydrate()
+    }
+  }
 }
 
 export default CreatorsPage

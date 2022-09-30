@@ -7,11 +7,7 @@ const Thumbnail = ({
   video: {
     id: string
     title: string
-    creatorId: string
-    createdAt: Date
     thumbnailUrl: string
-    source: string
-    videoUrl: string
   }
 }) => {
   return (
