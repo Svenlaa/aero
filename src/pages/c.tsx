@@ -13,7 +13,7 @@ const CreatorsPage = () => {
   return (
     <>
       <main>
-        <Header title="Channels | Aero" />
+        <Header title="Creators | Aero" />
         <div className="mx-auto flex w-4/5 flex-wrap gap-4">
           {creators.map((creator) => (
             <Avatar creator={creator} key={creator.id} />
