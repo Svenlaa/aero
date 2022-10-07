@@ -22,7 +22,9 @@ export const creatorRouter = createRouter()
   })
   .query('getAll', {
     resolve: async ({ ctx: { prisma } }) => {
-      const creators = await prisma.creator.findMany()
+      const creators = await prisma.creator.findMany({
+        orderBy: { name: 'asc' }
+      })
       return creators
     }
   })
